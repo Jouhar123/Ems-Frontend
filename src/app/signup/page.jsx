@@ -13,7 +13,7 @@ export default function Signup() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   
-  const router = useRouter(); // Initialize Next.js router
+  const router = useRouter();
 
   const submit = async (e) => {
     e.preventDefault();
@@ -22,7 +22,6 @@ export default function Signup() {
 
     try {
       await api.post("signup/", form);
-      // Use router.push for navigation
       router.push("/login"); 
     } catch (err) {
       const errorMsg = err.response?.data;
@@ -40,7 +39,6 @@ export default function Signup() {
     <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4 py-12">
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-2xl shadow-lg border border-slate-100">
         
-        {/* Header */}
         <div className="text-center">
           <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">
             Create Account
@@ -52,7 +50,7 @@ export default function Signup() {
 
         <form onSubmit={submit} className="mt-8 space-y-6">
           <div className="space-y-4 rounded-md shadow-sm">
-            {/* Username */}
+
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">
                 Username
@@ -67,7 +65,6 @@ export default function Signup() {
               />
             </div>
 
-            {/* Email */}
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">
                 Email Address
@@ -81,8 +78,6 @@ export default function Signup() {
                 required
               />
             </div>
-
-            {/* Password */}
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">
                 Password

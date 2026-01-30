@@ -36,7 +36,6 @@ export default function LoginPage() {
         </div>
 
         <form onSubmit={handleLogin} className="space-y-5">
-          {/* Username Field */}
           <div>
             <label htmlFor="username" className="block text-sm font-semibold text-slate-700 mb-2">
               Username
@@ -51,7 +50,6 @@ export default function LoginPage() {
             />
           </div>
 
-          {/* Password Field */}
           <div>
             <label htmlFor="password" className="block text-sm font-semibold text-slate-700 mb-2">
               Password

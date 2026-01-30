@@ -6,9 +6,9 @@ import AttendanceForm from "../../components/AttendenceForm";
 import AttendanceList from "../../components/AttendenceList";
 
 export default function AttendancePage() {
-  const params = useParams(); // In Next.js, this returns an object
+  const params = useParams(); 
   const id = params.id; 
-  const router = useRouter(); // FIXED: useRouter instead of useNavigate
+  const router = useRouter();
   
   const [hasData, setHasData] = useState(false);
   const [showForm, setShowForm] = useState(false);
@@ -42,11 +42,10 @@ export default function AttendancePage() {
     <div className="min-h-screen bg-slate-50 p-4 md:p-8">
       <div className="max-w-5xl mx-auto">
         
-        {/* Professional Header */}
         <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div className="flex items-center gap-4">
             <button 
-              onClick={() => router.back()} // FIXED: router.back()
+              onClick={() => router.back()}
               className="p-2 hover:bg-white rounded-full transition-all border border-transparent hover:border-slate-200 shadow-sm"
             >
               <svg className="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import api from "../apis/axios";
 
 export default function EmployeeForm({ editData, onSuccess }) {
-  // Initialize form state
   const [form, setForm] = useState({
     full_name: "",
     email: "",
@@ -11,7 +10,6 @@ export default function EmployeeForm({ editData, onSuccess }) {
   });
   const [loading, setLoading] = useState(false);
 
-  // This hook runs whenever editData changes (e.g., when the user clicks 'Edit')
   useEffect(() => {
     if (editData) {
       setForm({
@@ -20,7 +18,6 @@ export default function EmployeeForm({ editData, onSuccess }) {
         department: editData.department || "",
       });
     } else {
-      // Reset form if we are creating a new employee
       setForm({ full_name: "", email: "", department: "" });
     }
   }, [editData]);
@@ -30,10 +27,8 @@ export default function EmployeeForm({ editData, onSuccess }) {
     setLoading(true);
     try {
       if (editData) {
-        // Update existing employee
         await api.put(`employees/${editData.id}/`, form);
       } else {
-        // Create new employee
         await api.post("employees/", form);
       }
       onSuccess();
@@ -46,7 +41,6 @@ export default function EmployeeForm({ editData, onSuccess }) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      {/* Full Name Field */}
       <div>
         <label className="block text-sm font-bold text-slate-700 mb-1">Full Name</label>
         <input 
@@ -59,7 +53,6 @@ export default function EmployeeForm({ editData, onSuccess }) {
         />
       </div>
 
-      {/* Email Address - Locked during Edit */}
   <div>
   <label className="block text-sm font-bold text-slate-700 mb-1">
     Email Address 
@@ -80,7 +73,6 @@ export default function EmployeeForm({ editData, onSuccess }) {
   />
 </div>
 
-      {/* Department Field */}
       <div>
         <label className="block text-sm font-bold text-slate-700 mb-1">Department</label>
         <input 
@@ -93,7 +85,6 @@ export default function EmployeeForm({ editData, onSuccess }) {
         />
       </div>
 
-      {/* Action Button */}
       <button 
         disabled={loading}
         className="w-full py-3 bg-indigo-600 text-white rounded-lg font-bold shadow-lg hover:bg-indigo-700 active:transform active:scale-[0.98] transition-all disabled:opacity-50"

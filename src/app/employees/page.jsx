@@ -19,7 +19,6 @@ export default function EmployeesPage() {
       setEmployees(res.data);
     } catch (err) {
       console.error("Failed to fetch employees", err);
-      // If unauthorized, send back to login
       if (err.response?.status === 401) router.push("/login");
     } finally {
       setLoading(false);
@@ -49,7 +48,6 @@ export default function EmployeesPage() {
     <div className="p-8 bg-slate-50 min-h-screen">
       <div className="max-w-6xl mx-auto">
         
-        {/* Header Section */}
         <div className="flex justify-between items-center mb-8 bg-white p-6 rounded-xl shadow-sm border border-slate-200">
           <div>
             <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
@@ -72,7 +70,6 @@ export default function EmployeesPage() {
           </button>
         </div>
 
-        {/* Content Area */}
         <div className="transition-all duration-300">
           {loading && view === "list" ? (
             <div className="flex justify-center items-center h-64 text-slate-400">

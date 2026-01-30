@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link"; // FIXED: Changed from react-router-dom
+import Link from "next/link"; 
 import api from "../apis/axios";
 
 export default function EmployeeList({ employees, onDelete, onEdit }) {
@@ -51,7 +51,6 @@ export default function EmployeeList({ employees, onDelete, onEdit }) {
                   </span>
                 </td>
                 <td className="px-6 py-4 text-right space-x-2">
-                  {/* FIXED: href instead of to */}
                   <Link 
                     href={`/attendance/${emp.id}`} 
                     className="inline-flex items-center px-3 py-1.5 text-xs font-bold text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"
